@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CachingAPI", "CachingAPI\CachingAPI.csproj", "{B1921E23-4955-4D0B-86B1-08DD5EB1FCC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1921E23-4955-4D0B-86B1-08DD5EB1FCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1921E23-4955-4D0B-86B1-08DD5EB1FCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1921E23-4955-4D0B-86B1-08DD5EB1FCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1921E23-4955-4D0B-86B1-08DD5EB1FCC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDA07FFE-F188-4AD5-8341-D1C7DF003AFD}
+	EndGlobalSection
+EndGlobal
