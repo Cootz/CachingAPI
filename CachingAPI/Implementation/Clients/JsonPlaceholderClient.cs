@@ -19,13 +19,13 @@ namespace CachingAPI.Implementation.Clients
 
         public async Task<User[]> GetAllUsersAsync()
         {
-            HttpResponseMessage httpResponce = await _httpClient.GetAsync("users");
+            using HttpResponseMessage httpResponce = await _httpClient.GetAsync("users");
             return (await httpResponce.Content.ReadFromJsonAsync<User[]>())!;
         }
 
         public async Task<User?> GetUserByIdAsync(int userId)
         {
-            HttpResponseMessage httpResponce = await _httpClient.GetAsync($"users/{userId}");
+            using HttpResponseMessage httpResponce = await _httpClient.GetAsync($"users/{userId}");
             return await httpResponce.Content.ReadFromJsonAsync<User>();
         }
     }
