@@ -33,13 +33,15 @@ namespace CachingAPI.Implementation
         /// <returns>All users</returns>
         public async Task<User[]> GetAllAsync()
         {
-            if (await _dbContext.Users.AnyAsync())
+            User[] users = await EagerUsers.ToArrayAsync();
+
+            if (users.Length != 0)
             {
-                return await EagerUsers.ToArrayAsync();
+                return users;
             }
             else
             {
-                User[] users = await _jsonPlaceholderClient.GetAllUsersAsync();
+                users = await _jsonPlaceholderClient.GetAllUsersAsync();
 
                 await cacheUsersAsync(users);
                 return users;
