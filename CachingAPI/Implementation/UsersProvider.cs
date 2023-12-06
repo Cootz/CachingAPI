@@ -12,6 +12,15 @@ namespace CachingAPI.Implementation
         private readonly JsonPlaceholderClient _jsonPlaceholderClient;
         private readonly CachingApiDbContext _dbContext;
 
+        /// <summary>
+        ///  Represent users table with eager loading of all related data
+        /// </summary>
+        private IQueryable<User> EagerUsers 
+            => _dbContext.Users
+                .Include(user => user.Address)
+                .Include(user => user.Address.Geo)
+                .Include(user => user.Company);
+
         public UsersProvider(JsonPlaceholderClient jsonPlaceholderClient, CachingApiDbContext dbContext)
         {
             _jsonPlaceholderClient = jsonPlaceholderClient;
@@ -26,11 +35,7 @@ namespace CachingAPI.Implementation
         {
             if (await _dbContext.Users.AnyAsync())
             {
-                return await _dbContext.Users
-                    .Include(user => user.Address)
-                    .Include(user => user.Address.Geo)
-                    .Include(user => user.Company)
-                    .ToArrayAsync();
+                return await EagerUsers.ToArrayAsync();
             }
             else
             {
@@ -48,7 +53,7 @@ namespace CachingAPI.Implementation
         /// <returns>Found user</returns>
         public async Task<User?> GetUserByIdAsync(int userId)
         {
-            User? user = await _dbContext.Users.FindAsync(userId);
+            User? user = await EagerUsers.SingleAsync(user => user.Id == userId);
 
             if (user is not null)
             {
