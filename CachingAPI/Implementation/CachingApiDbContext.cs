@@ -1,6 +1,5 @@
 ﻿using CachingAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace CachingAPI.Implementation
 {
