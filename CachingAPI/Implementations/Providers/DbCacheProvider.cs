@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CachingAPI.Implementations.Providers
 {
+    /// <summary>
+    ///  Provides db caching for data
+    /// </summary>
     public class DbCacheProvider
     {
         private CachingApiDbContext _dbContext;

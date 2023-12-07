@@ -15,6 +15,10 @@ namespace CachingAPI.Implementations.Providers
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        ///  Gets all albums
+        /// </summary>
+        /// <returns>All albums</returns>
         public async Task<Album[]> GetAllAsync()
         {
             Album[] albums = await _dbContext.Albums.ToArrayAsync();
@@ -22,6 +26,11 @@ namespace CachingAPI.Implementations.Providers
             return albums.Length > 0 ? albums : await _cacheProvider.CacheAllAlbumsAsync();
         }
 
+        /// <summary>
+        ///  Get a specific album by it's ID
+        /// </summary>
+        /// <param name="albumId">Alboms ID</param>
+        /// <returns>Album or null if album wasn't found</returns>
         public async Task<Album?> GetByIdAsync(int albumId)
         {
             Album? album = await _dbContext.Albums.SingleOrDefaultAsync(album => album.Id == albumId);
@@ -39,6 +48,11 @@ namespace CachingAPI.Implementations.Providers
             return albums.SingleOrDefault(album => album.Id == albumId);
         }
 
+        /// <summary>
+        ///  Gets all albums of a scpecific user
+        /// </summary>
+        /// <param name="userId">User ID</param>
+        /// <returns>All albums of a user with <paramref name="userId"/></returns>
         public async Task<Album[]> GetAllByUserId(int userId)
         {
             Album[] albums = await _dbContext.Albums.Where(album => album.UserId == userId).ToArrayAsync();

@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CachingAPI.Implementations.Db
 {
+    /// <summary>
+    ///  Caching API database context
+    /// </summary>
     public class CachingApiDbContext : DbContext
     {
         public DbSet<User> Users { get; set; } = null!;
