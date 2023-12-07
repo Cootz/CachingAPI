@@ -1,4 +1,4 @@
-﻿using CachingAPI.Implementation;
+﻿using CachingAPI.Implementations.Providers;
 using CachingAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 

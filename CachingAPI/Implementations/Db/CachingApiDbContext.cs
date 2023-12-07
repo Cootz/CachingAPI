@@ -1,7 +1,7 @@
 ﻿using CachingAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CachingAPI.Implementation
+namespace CachingAPI.Implementations.Db
 {
     public class CachingApiDbContext : DbContext
     {

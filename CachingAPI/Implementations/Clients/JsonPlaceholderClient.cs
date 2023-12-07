@@ -28,5 +28,18 @@ namespace CachingAPI.Implementation.Clients
             using HttpResponseMessage httpResponce = await _httpClient.GetAsync($"users/{userId}");
             return await httpResponce.Content.ReadFromJsonAsync<User>();
         }
+
+
+        public async Task<Album[]> GetAllAlmubsAsync()
+        {
+            using HttpResponseMessage httpResponce = await _httpClient.GetAsync("albums");
+            return (await httpResponce.Content.ReadFromJsonAsync<Album[]>())!;
+        }
+
+        public async Task<Album?> GetAlbumByIdAsync(int albumId)
+        {
+            using HttpResponseMessage httpResponce = await _httpClient.GetAsync($"albums/{albumId}");
+            return await httpResponce.Content.ReadFromJsonAsync<Album>();
+        }
     }
 }

@@ -8,10 +8,10 @@ namespace CachingAPI.Models
         [Key]
         [JsonIgnore]
         public int Id { get; set; }
-        public string Street { get; set; }
-        public string Suite { get; set; }
-        public string City { get; set; }
-        public string ZipCode { get; set; }
-        public Geo Geo { get; set; }
+        public string Street { get; set; } = null!;
+        public string Suite { get; set; } = null!;
+        public string City { get; set; } = null!;
+        public string ZipCode { get; set; } = null!;
+        public Geo Geo { get; set; } = null!;
     }
 }

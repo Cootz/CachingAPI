@@ -8,8 +8,8 @@ namespace CachingAPI.Models
         [Key]
         [JsonIgnore]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string CatchPhrase { get; set; }
-        public string BS {  get; set; }
+        public string Name { get; set; } = null!;
+        public string CatchPhrase { get; set; } = null!;
+        public string BS {  get; set; } = null!;
     }
 }

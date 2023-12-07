@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CachingAPI.Models
 {
@@ -8,7 +9,12 @@ namespace CachingAPI.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Title { get; set; }
-        public User User { get; set; }
+        public string Title { get; init; }
+
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
+
+        [JsonIgnore]
+        public User User { get; init; }
     }
 }
